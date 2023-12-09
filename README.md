@@ -1,3 +1,3 @@
 Boilerplates: Material UI, Tailwind, SQL Scripts, 
 
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/materialui/materialui-original.svg" />
+[![My Skills](https://skillicons.dev/icons?i=materialui,tailwind,nodejs,fastapi,mysql)](https://skillicons.dev)
