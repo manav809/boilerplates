@@ -6,7 +6,8 @@ import React from "react";
 const StyledButton = styled(Button)(() => ({
   backgroundColor: "#f6ccff",
 }));
-
+// Styling Components: Create a new component that has styling on it
+//const newComponent = styled(OldComponent) =>
 function App() {
   return (
     <Container>
@@ -19,13 +20,13 @@ function App() {
         </Stack>
         <Stack direction="row" spacing={2}>
           <Button variant="contained">Contained primary button</Button>
-          <Button variant="contained" color="success">
+          <Button variant="contained" color="secondary">
             Secondary Button
           </Button>
           <Button variant="outlined" color="primary" disableRipple>
             Contained outlined button
           </Button>
-          <StyledButton variant="outlined" color="secondary">
+          <StyledButton variant="outlined" color="info">
             Styled button
           </StyledButton>
         </Stack>
