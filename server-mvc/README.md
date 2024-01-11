@@ -29,3 +29,26 @@ app.listen(port, () => {
   console.log(`[server]: Server is running at http://localhost:${port}`);
 });
 ```
+
+```ts
+app
+  .route("/")
+  .get((req: Request, res: Response) => {
+    return res.send("You made a get request");
+  })
+  .post((req: Request, res: Response) => {
+    return res.send("You made a post request");
+  })
+  .put((req: Request, res: Response) => {
+    return res.send("You made a put request");
+  })
+  .all((req: Request, res: Response) => {
+    return res.send("You made an X request");
+  });
+```
+
+```ts
+app.get("/", (req, res) => res.send("200"))
+app.get("/ab*cd", (req, res) => res.send("200"))
+app.get(/abc/, (req, res) => res.send("200"))
+```
