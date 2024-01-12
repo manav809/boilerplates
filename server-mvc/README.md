@@ -52,3 +52,41 @@ app.get("/", (req, res) => res.send("200"))
 app.get("/ab*cd", (req, res) => res.send("200"))
 app.get(/abc/, (req, res) => res.send("200"))
 ```
+
+
+```ts
+function handleGetBookOne(req: Request, res: Response, next: NextFunction) {
+  console.log(req.params);
+  next();
+}
+
+function handleGetBookTwo(req: Request, res: Response, next: NextFunction) {
+  console.log("secondCall");
+  return res.send(req.params);
+}
+
+app.get("/api/books/:bookId", [handleGetBookOne, handleGetBookTwo]);
+```
+
+
+```ts
+function middleware(req: Request, res: Response, next: NextFunction) {
+  //@ts-ignore
+  req.name = "Manav";
+  next();
+}
+app.get(
+  "/api/books/:bookId",
+  middleware,
+  (req: Request, res: Response) => {
+    //@ts-ignore
+    console.log(req.name);
+    //@ts-ignore
+    res.send(req.name);
+  }
+);
+```
+
+```ts
+app.use(middleware) //for all routes to get the middleware
+```
