@@ -43,3 +43,9 @@ db.listingsAndReviews.updateOne({name: "Manav"}, {$set: {age: "25"}})
 db.listingsAndReviews.find({age: '25'})
 ```
 
+### Delete Docs
+
+```bash
+db.listingsAndReviews.deleteOne({name: "Al"})
+
+```
