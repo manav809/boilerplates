@@ -23,3 +23,23 @@ db.listingsAndReviews.insertMany([{name: "Manav"}, {name: "hfhfs"}])
 db.listingsAndReviews.find({name: {$in: ["Manav", "hfhfs"]}})
 ```
 
+### Update Docs
+```shell
+db.listingsAndReviews.updateOne({name: "Manav"}, {$set: {name: "Hello"}})
+db.listingsAndReviews.find({name: {$in: ["Manav", "hfhfs", "Hello"]}})
+db.listingsAndReviews.updateMany({name: "hfhfs"}, {$unset: {name: 1}})
+db.listingsAndReviews.updateMany({name: null}, {$unset : {name: ""}})
+
+
+db.listingsAndReviews.find({
+$and: [
+{name: {$exists: true}}, 
+{name: {$in : ["Manav", "Hello", ""]}}
+]
+})
+
+db.listingsAndReviews.updateOne({name: "Manav"}, {$set: {age: "25"}})
+
+db.listingsAndReviews.find({age: '25'})
+```
+
