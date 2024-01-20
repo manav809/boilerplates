@@ -49,3 +49,24 @@ db.listingsAndReviews.find({age: '25'})
 db.listingsAndReviews.deleteOne({name: "Al"})
 
 ```
+### Create A Collection and Schema
+```base
+db.createCollection("hosts", {
+	validator: { $jsonSchema : {
+		bsonType: "object", 
+		required: ["email"], 
+		properties: {
+			email: {
+				bsonType: "string",
+				pattern: "@mongodb\.com$",
+				description: "must be a string"
+			},
+			phonenumber: {
+				bsonType: "string", 
+				description: "must be a string"
+			}
+		}
+  }
+}})
+
+```
