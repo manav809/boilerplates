@@ -67,6 +67,8 @@ db.createCollection("hosts", {
 			}
 		}
   }
+
+db.hosts.insertOne({email: "manavpatel@mongodb.com"})
 }})
 
 ```
