@@ -72,3 +72,21 @@ db.hosts.insertOne({email: "manavpatel@mongodb.com"})
 }})
 
 ```
+### Aggregation 
+```bash
+ db.listingsAndReviews.aggregate([
+   {
+		$match: {
+			number_of_reviews: {$gte: 100}
+			
+		}
+	},
+  {
+		$group: {
+			_id: "$property_type",
+			count: {$sum: 1}, 
+			reviewCount: {$sum: "$number_of_reviews"}
+    }
+  }
+])
+```
