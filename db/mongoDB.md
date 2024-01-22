@@ -121,3 +121,18 @@ db.hosts.insertOne({email: "manavpatel@mongodb.com"})
 ])
 ])
 ```
+
+
+### Lookups 
+```bash
+db.accounts.aggregate([
+  {
+		$lookup: {
+			from: "transactions",
+			localField: "account_id", 
+			foreignField: "account_id", 
+			as: "customer_orders"
+		}
+	}
+])
+```
