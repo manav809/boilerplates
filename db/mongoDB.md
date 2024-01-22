@@ -136,3 +136,12 @@ db.accounts.aggregate([
 	}
 ])
 ```
+
+
+### Indexes
+```bash
+db.listingsAndReviews.getIndexes()
+use sample_analytics
+db.accounts.find({account_id: 371138}).explain("executionStats")
+db.accounts.createIndex({"account_id": 1})
+```
