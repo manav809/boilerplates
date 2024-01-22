@@ -88,5 +88,36 @@ db.hosts.insertOne({email: "manavpatel@mongodb.com"})
 			reviewCount: {$sum: "$number_of_reviews"}
     }
   }
+
+
+
+
+
+   db.listingsAndReviews.aggregate([
+   {
+		$match: {
+			number_of_reviews: {$gte: 100}
+		}
+	},
+  {
+		$group: {
+			_id: "$property_type",
+			count: {$sum: 1}, 
+			reviewCount: {$sum: "$number_of_reviews"},
+			avgPrice: {$avg: "$price"}
+    }
+  },
+  {
+		$project: {
+  		_id: 1, 
+  		count: 1, 
+  		reviewCount: 1, 
+  		avgPrice: {$ceil: "$avgPrice"}
+		}
+	}, 
+  {
+		$sort: {count : -1}
+	}
+])
 ])
 ```
