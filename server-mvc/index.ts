@@ -1,16 +1,15 @@
 import express, { Request, Response } from "express";
 import listEndpoints from "express-list-endpoints";
-const userRoute = require("./routes/User");
+import routes from "./routes";
 const app = express();
 
-const port = 3001;
+const port = 3000;
 app.use(express.json()); //middleware that allows for us to use json
-
-app.use("/", userRoute)
-
 
 app.listen(port, () => {
   console.log(`[server]: Server is running at http://localhost:${port}`);
 });
+
+routes(app);
 
 console.table(listEndpoints(app));
