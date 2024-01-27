@@ -1,6 +1,7 @@
 import { HostModel } from "../models/host";
 async function getHosts(): Promise<any> {
-  const hosts: string[] = await HostModel.find({});
+  
+  const hosts = await HostModel.find({}).exec();
   return hosts;
 }
 

@@ -12,4 +12,4 @@ app.listen(port, () => {
 
 routes(app);
 
-console.table(listEndpoints(app));
+

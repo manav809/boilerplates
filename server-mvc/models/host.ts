@@ -1,4 +1,4 @@
-import { ObjectId, Schema, Model, model } from "mongoose";
+import mongoose, { ObjectId, Schema, Model, model } from "mongoose";
 
 export interface HostAttributes {
   _id: ObjectId;
@@ -23,6 +23,6 @@ export const HostSchema: Schema<HostAttributes> = new Schema<HostAttributes>({
 });
 
 export const HostModel: Model<HostAttributes> = model<HostAttributes>(
-  "User",
-  HostSchema
+  "hosts",
+  HostSchema,
 );
