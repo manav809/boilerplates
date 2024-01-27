@@ -3,10 +3,14 @@ import HostRouter from "./host";
 import models from "../models";
 import listEndpoints from "express-list-endpoints";
 import * as dotenv from "dotenv";
-dotenv.config();
-async function routes(app: Express): Promise<void> {
-  app.use("/", HostRouter);
 
+dotenv.config();
+
+
+async function routes(app: Express): Promise<void> {
+
+  app.use("/", HostRouter);
+  
   models.mongoose
     .connect(process.env.MONGO_URI!)
     .then(() => {
