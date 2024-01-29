@@ -90,3 +90,10 @@ app.get(
 ```ts
 app.use(middleware) //for all routes to get the middleware
 ```
+
+```bash
+docker ps
+docker build -t {title}:1.0 .  
+docker run {name}
+docker run -p 5000:3002 {name}
+```
