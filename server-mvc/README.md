@@ -4,6 +4,8 @@ npm i -D typescript @types/express @types/node
 npx tsc --init
 npm i -D nodemon ts-node
 npm i --save @types/express-list-endpoints
+npm install --save @types/cors
+npm install mongoose
 ```
 
 ```json
